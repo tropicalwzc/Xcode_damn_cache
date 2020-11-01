@@ -2,6 +2,10 @@
 import os
 
 Username = "tropical_fish"
+excludes = ['.localized','Shared','Guest']
+for name in os.listdir("/Users"):
+    if name not in excludes:
+        Username = name
 aimiphonepath = "/Users/"+Username+"/Library/Developer/Xcode/iOS DeviceSupport"
 aimiwatchpath = "/Users/"+Username+"/Library/Developer/Xcode/watchOS DeviceSupport"
 aimdyldpath = "/Users/"+Username+"/Library/Developer/CoreSimulator/Caches/dyld"
@@ -9,7 +13,6 @@ aimdyldpath = "/Users/"+Username+"/Library/Developer/CoreSimulator/Caches/dyld"
 def version_bigger_than(A,B):
     Apieces = A.split('.')
     Bpieces = B.split('.')
-    print Apieces,Bpieces
     lender = min(len(Apieces),len(Bpieces))
     for l in range(lender):
         if int(Apieces[l]) < int(Bpieces[l]):
